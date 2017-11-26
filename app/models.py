@@ -8,10 +8,11 @@ class User(db.Model):
     id_num = db.Column(db.String(9), index=True, unique=True)
     isVoted = db.Column(db.Integer)
 
-    def __init__(self, first_name, last_name, id_num):
+    def __init__(self, first_name, last_name, id_num, isvoted):
         self.first_name = first_name
         self.last_name = last_name
         self.id_num = id_num
+        self.isVoted = isvoted
 
     @property
     def is_authenticated(self):

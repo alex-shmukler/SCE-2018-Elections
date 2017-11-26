@@ -31,9 +31,8 @@ def index():
         party_rec = Party.query.filter_by(name=request.form['party_name']).first()
         party_rec.sum +=1
         db.session.commit()
-        return render_template('login.html', msg = u'הצבעתך נקלטה בהצלחה')
-
-
+        flash(u'הצבעתך נקלטה בהצלחה', 'success')
+        return render_template('login.html')
     g.user = current_user
     parties = Party.query.all()
     return render_template('index.html', title='Home', user=g.user, parties=parties)
@@ -47,18 +46,16 @@ def login():
         last_name = request.form['last_name']
         id_num = request.form['id_num']
         user = User.query.filter_by(first_name=first_name, last_name=last_name, id_num=id_num).first()
-        if user:
-            if user.isVoted == 0:
-                login_user(user)
-                return redirect(url_for('index'))
-            return render_template('login.html', error = u'משתמש זה הצביע כבר')
-        else:
-            error = u'המצביע אינו מופיע בבסיס הנתונים'
-            return render_template('login.html', error=error)
+        if not user:
+            flash(u'המצביע אינו מופיע בבסיס הנתונים','danger')
+            return render_template('login.html')
+        if user.isVoted == 0:
+            login_user(user)
+            return redirect(url_for('index'))
+        flash(u'משתמש זה הצביע כבר', 'danger')
+        return render_template('login.html')
     return render_template('login.html')
 
-
-## will handle the logout request
 @app.route('/logout')
 @login_required
 def logout():
@@ -76,5 +73,4 @@ def secret():
 ## will handle the site icon - bonus 2 points for creative new icon
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico',
-                               mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
