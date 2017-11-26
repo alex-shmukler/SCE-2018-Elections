@@ -12,10 +12,10 @@
       <h1>ברוכים הבאים למערכת הבחירות הממוחשבת</h1>
       <h4>נא לבצע חיבור ראשוני למערכת</h4>
       <br>
-      <form action="" method="post">
-         <label class="loginlabel" for="id">:ת.ז</label>
-        <input id="id" type="text" placeholder="ת.ז" align="right" name="id" value="{{
-          request.form.id }}">
+      <form action="/login" method="post">
+         <label class="loginlabel" for="id_num">:ת.ז</label>
+        <input id="id_num" type="text" placeholder="ת.ז" align="right" name="id_num" value="{{
+          request.form.id_num }}">
         <label class="loginlabel" for="first_name">:שם פרטי</label>
         <input id="first_name" type="text" placeholder="שם פרטי" align="right" name="first_name" value="{{
           request.form.first_name }}">
@@ -26,6 +26,9 @@
       </form>
       {% if error %}
         <p class="error" style="color: red"><strong>שגיאה:</strong> {{ error }}</p>
+      {% endif %}
+      {% if msg %}
+        <p class="error" style="color: green">{{ msg }}</p>
       {% endif %}
     </div>
   </body>
