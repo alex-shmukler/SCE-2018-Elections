@@ -55,7 +55,7 @@ class SeleniumTest(LiveServerTestCase):
         submit.click()
 
         assert self.msg not in self.browser.page_source
-        self.browser.save_screenshot('registered_user.png')
+        # self.browser.save_screenshot('registered_user.png')
 
     def test_unregistered_user(self):
         first_name = self.browser.find_element_by_id("first_name")
@@ -71,7 +71,7 @@ class SeleniumTest(LiveServerTestCase):
         submit.click()
 
         assert self.msg in self.browser.page_source
-        self.browser.save_screenshot('unregistered_user.png')
+        # self.browser.save_screenshot('unregistered_user.png')
 
 
 
