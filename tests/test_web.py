@@ -1,5 +1,5 @@
-from app import app
 import unittest
+from app import app
 
 class AuthenticationTest(unittest.TestCase):
 
@@ -8,17 +8,14 @@ class AuthenticationTest(unittest.TestCase):
         self.app_context.push()
         self.check = app.test_client(self)
 
-
-
-
     #######################################
-    def athentication_with_out_id(self):
+    def login_without_id(self):
         return self.check.post('login',
-                                data=dict(first_name='a', last_name='a')
+                                data=dict(first_name='aa', last_name='aa')
                                )
 
-    def test_login_with_out_id(self):
-        rv = self.athentication_with_out_id()
+    def test_login_without_id(self):
+        rv = self.login_without_id()
         self.assertEqual(rv.status_code, 400)
     #######################################
 
@@ -43,8 +40,8 @@ class AuthenticationTest(unittest.TestCase):
     #######################################
 
     def tearDown(self):
-        pass
-
+        del self.check
+        self.app_context.pop()
 
 if __name__ == '__main__':
   unittest.main()
