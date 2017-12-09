@@ -29,7 +29,7 @@ def index():
         validateAndAdd(request.form['party_name'])
         User.query.filter_by(id=current_user.id).update(dict(isVoted=1))
         party_rec = Party.query.filter_by(name=request.form['party_name']).first()
-        party_rec.sum +=1
+        party_rec.sum += 1
         db.session.commit()
         flash(u'הצבעתך נקלטה בהצלחה', 'success')
         return render_template('login.html')
@@ -55,14 +55,13 @@ def login():
 
         user = User.query.filter_by(first_name=first_name, last_name=last_name, id_num=id_num).first()
 
-
         if not user:
-            flash(u'המצביע אינו מופיע בבסיס הנתונים','danger')
+            flash(u'המצביע אינו מופיע בבסיס הנתונים', 'danger')
             return render_template('login.html')
         else:
             if user.role == 1:
                 login_user(user)
-                return render_template('admin.html')
+                return redirect("/admin")
         if user.isVoted == 0:
             login_user(user)
             return redirect(url_for('index'))
@@ -70,10 +69,11 @@ def login():
         return render_template('login.html')
     return render_template('login.html')
 
+
 @app.route('/logout')
 @login_required
 def logout():
-    logout_user() ## built in 'flask login' method that deletes the user session
+    logout_user()  ## built in 'flask login' method that deletes the user session
     return redirect(url_for('index'))
 
 
@@ -83,15 +83,22 @@ def logout():
 def secret():
     return 'This is a secret page. You are logged in as {} {}'.format(current_user.first_name, current_user.last_name)
 
-@app.route('/admin', methods=['GET'])
+
+@app.route('/admin')
 @login_required
 def adminpage():
-    return render_template('admin.html')
+    if str(current_user.role) == '1':
+        return render_template('admin.html')
+    else:
+        return redirect(url_for('index'))
+
 
 ## will handle the site icon - bonus 2 points for creative new icon
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico',
+                               mimetype='image/vnd.microsoft.icon')
+
 
 @app.errorhandler(404)
 def page_not_found(e):
