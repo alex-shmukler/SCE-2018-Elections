@@ -5,8 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from flask import Flask
 from flask_testing import LiveServerTestCase
-from app.models import User, Party
 from app import app, db
+from app.models import User
+
 
 
 
