@@ -77,8 +77,9 @@ class SeleniumTest(LiveServerTestCase):
 
     def tearDown(self):
         self.browser.quit()
-        db.session.delete(self.testUser)
-        db.session.commit()
+        with app.app_context():
+            db.drop_all()
+            db.session.remove()
 
 
 if __name__ == '__main__':
