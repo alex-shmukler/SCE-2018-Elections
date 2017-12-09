@@ -52,10 +52,17 @@ def login():
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         id_num = request.form['id_num']
+
         user = User.query.filter_by(first_name=first_name, last_name=last_name, id_num=id_num).first()
+
+
         if not user:
             flash(u'המצביע אינו מופיע בבסיס הנתונים','danger')
             return render_template('login.html')
+        else:
+            if user.role == 1:
+                login_user(user)
+                return render_template('admin.html')
         if user.isVoted == 0:
             login_user(user)
             return redirect(url_for('index'))
@@ -76,11 +83,16 @@ def logout():
 def secret():
     return 'This is a secret page. You are logged in as {} {}'.format(current_user.first_name, current_user.last_name)
 
+@app.route('/admin', methods=['GET'])
+@login_required
+def adminpage():
+    return render_template('admin.html')
 
 ## will handle the site icon - bonus 2 points for creative new icon
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
