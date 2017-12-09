@@ -88,7 +88,11 @@ def secret():
 @login_required
 def adminpage():
     if str(current_user.role) == '1':
-        return render_template('admin.html')
+        parties = Party.query.all()
+        nonvoters = 0
+        for party in parties:
+            nonvoters += party.sum
+        return render_template('admin.html', title='Admin dashboard',numberOfVoters=nonvoters, parties=parties)
     else:
         return redirect(url_for('index'))
 

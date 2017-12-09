@@ -1,21 +1,15 @@
-// Bar chart
-new Chart(document.getElementById("bar-chart"), {
-    type: 'bar',
-    data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-      datasets: [
-        {
-          label: "Population (millions)",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2478,5267,734,784,433]
-        }
-      ]
-    },
-    options: {
-      legend: { display: false },
-      title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
-      }
-    }
+$(document).ready(function() {
+  $('.adobe').css('width', '100%');
+  $('.html').css('width', '100%');
+  $('.css').css('width', '100%');
+  $('.lesssass').css('width', '50%');
+  $('.jquery').css('width', '70%');
+  $('.javascript').css('width', '55%');
+  $('.bootstrap').css('width', '90%');
+  $('.wordpress').css('width', '85%');
+  $('.ui').css('width', '100%');
+  $('.ux').css('width', '90%');
+  $('.rwd').css('width', '85%');
+  $('.mobile').css('width', '85%');
+  $('.rapidproto').css('width', '95%');
 });
