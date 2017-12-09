@@ -1,25 +1,30 @@
 import unittest
-from app import views
+from flask import Flask
+
+app = Flask(__name__)
 
 class AuthenticationTest(unittest.TestCase):
+
     def setUp(self):
-        self.username = "John"
-        self.password = "Doe"
-        self.id = "123456789"
-        self.role = 1
+        self.firstname = "John"
+        self.lastname = "Doe"
+        self.appp = app.test_client()
 
     def tearDown(self):
-        del self.username
-        del self.password
-        del self.id
-        del self.role
+        del self.firstname
+        del self.lastname
 
-    def test_athentication_with_out_id(self):
-        return self.app.post('/login', data=dict(
-            username = self.username,
-            password = self.password,
+
+    def athentication_with_out_id(self):
+        return self.appp.get('/login', data=dict(
+            first_name = self.firstname,
+            last_name = self.lastname,
         ), follow_redirects = True)
 
+    def test_login_with_out_id(self):
+        rv = self.athentication_with_out_id()
+        print (rv.data)
+        assert("Enter all fields" in rv.data)
 
 if __name__ == "__main__":
     unittest.main()

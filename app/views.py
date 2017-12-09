@@ -43,7 +43,7 @@ def login():
     error = None
     errFlag = False;
     if request.method == 'POST':
-        if request.form['first_name'] == "" or request.form['first_name'] == "" or request.form['first_name'] == "":
+        if request.form['first_name'] == "" or request.form['last_name'] == "" or request.form['id_num'] == "":
             flash(u'אנא מלא את כל השדות', 'danger')
             errFlag = True;
 
