@@ -41,7 +41,14 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
+    errFlag = False;
     if request.method == 'POST':
+        if request.form['first_name'] == "" or request.form['first_name'] == "" or request.form['first_name'] == "":
+            flash(u'אנא מלא את כל השדות', 'danger')
+            errFlag = True;
+
+        if errFlag:
+            return render_template('login.html')
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         id_num = request.form['id_num']

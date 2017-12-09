@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="static/all.css" rel="stylesheet" media="screen">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+
   </head>
   <body>
     <div class="container" align="center">
@@ -21,15 +24,24 @@
             <input id="last_name" type="text" placeholder="שם משפחה" align="right" name="last_name" value="{{request.form.last_name}}">
             <input class="btn btn-default" type="submit" value="כניסה">
         </form>
-        {% with messages = get_flashed_messages(with_categories=true) %}
+
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                <div class="alert alert-{{ category }}" role="alert">
+                <div id="msg" class="alert alert-{{ category }}" role="alert">
                     <strong>{{ message }}</strong>
                 </div>
                 {% endfor %}
+                <script type="text/javascript">
+                        var fade_out = function() {
+                          $("#msg").delay(3200).fadeOut(300);
+                        }
+                        setTimeout(fade_out, 2000);
+                    </script>
             {% endif %}
         {% endwith %}
+
     </div>
   </body>
 </html>
