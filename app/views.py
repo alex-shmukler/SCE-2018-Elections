@@ -56,7 +56,7 @@ def login():
         user = User.query.filter_by(first_name=first_name, last_name=last_name, id_num=id_num).first()
 
         if not user:
-            flash(u'המצביע אינו מופיע בבסיס הנתונים', 'danger')
+            flash('The user is not registered!', 'danger')
             return render_template('login.html')
         else:
             if user.role == 1:
@@ -82,19 +82,6 @@ def logout():
 @login_required
 def secret():
     return 'This is a secret page. You are logged in as {} {}'.format(current_user.first_name, current_user.last_name)
-
-
-@app.route('/admin')
-@login_required
-def adminpage():
-    if str(current_user.role) == '1':
-        parties = Party.query.all()
-        nonvoters = 0
-        for party in parties:
-            nonvoters += party.sum
-        return render_template('admin.html', title='Admin dashboard',numberOfVoters=nonvoters, parties=parties)
-    else:
-        return redirect(url_for('index'))
 
 
 ## will handle the site icon - bonus 2 points for creative new icon

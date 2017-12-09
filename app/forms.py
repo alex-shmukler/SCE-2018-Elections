@@ -11,8 +11,8 @@ class LoginForm(Form):
     id_num = StringField('id_num', validators=[DataRequired()])
     first_name = StringField('first_name', validators=[DataRequired()])
     last_name = StringField('last_name', validators=[DataRequired()])
-
     first_name = StringField('First_name', validators=[DataRequired()])
+
     def validate(self):
         return True
 
