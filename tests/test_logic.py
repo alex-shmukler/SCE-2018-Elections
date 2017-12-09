@@ -17,9 +17,9 @@ class SeleniumTest(LiveServerTestCase):
 
 
     def init_db(self):
-        db.session.commit()
-        testUser = User('test', 'me',123456789,0,0)
-        db.session.add(testUser)
+
+        self.testUser = User('test', 'me',1234567800,0,0)
+        db.session.add(self.testUser)
         db.session.commit()
 
 
@@ -49,7 +49,7 @@ class SeleniumTest(LiveServerTestCase):
         last_name.send_keys("me")
 
         id_num = self.browser.find_element_by_id("id_num")
-        id_num.send_keys(123456789)
+        id_num.send_keys(1234567800)
 
         submit = self.browser.find_element_by_id("submit")
         submit.click()
@@ -65,7 +65,7 @@ class SeleniumTest(LiveServerTestCase):
         last_name.send_keys("me1")
 
         id_num = self.browser.find_element_by_id("id_num")
-        id_num.send_keys(123456788)
+        id_num.send_keys(123456787)
 
         submit = self.browser.find_element_by_id("submit")
         submit.click()
@@ -77,9 +77,9 @@ class SeleniumTest(LiveServerTestCase):
 
     def tearDown(self):
         self.browser.quit()
-        with app.app_context():
-            db.drop_all()
-            db.session.remove()
+        db.session.delete(self.testUser)
+        db.session.commit()
+
 
 if __name__ == '__main__':
     unittest.main()
