@@ -23,14 +23,15 @@ class SeleniumTest(LiveServerTestCase):
         app.config['LIVESERVER_TIMEOUT'] = 10
         db.init_app(app)
         with app.app_context():
+            db.drop_all()
             db.create_all()
             self.init_db()
         return app
 
     def setUp(self):
-         self.browser = webdriver.PhantomJS(executable_path="./phantomjs")
-         self.browser.get(self.get_server_url())
-         self.msg = 'The user is not registered!'
+        self.browser = webdriver.PhantomJS(executable_path="./phantomjs")
+        self.browser.get(self.get_server_url())
+        self.msg = 'The user is not registered!'
 
     def test_registered_user(self):
         first_name = self.browser.find_element_by_id("first_name")
