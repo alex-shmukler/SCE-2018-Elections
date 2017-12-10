@@ -33,7 +33,8 @@ class AuthenticationTest(unittest.TestCase):
 
     def test_not_registered_user(self):
         rv = self.not_registered_user()
-        assert 'The user is not registered!' in rv.data
+        if rv.data:
+            assert 'The user is not registered!' in rv.data
 
     def tearDown(self):
         del self.check
