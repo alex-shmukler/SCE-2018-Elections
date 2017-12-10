@@ -58,10 +58,7 @@ def login():
         if not user:
             flash('The user is not registered!', 'danger')
             return render_template('login.html')
-        else:
-            if user.role == 1:
-                login_user(user)
-                return redirect("/admin")
+
         if user.isVoted == 0:
             login_user(user)
             return redirect(url_for('index'))
