@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.environ['WORKSPACE'])
+import nodepy
 from __future__ import absolute_import
 import unittest
 from selenium import webdriver
@@ -11,7 +15,7 @@ class SeleniumTest(LiveServerTestCase):
     TESTING = True
 
     def init_db(self):
-        self.testUser = User('test', 'me',1234567800,0,0)
+        self.testUser = User('test', 'me', 1234567800, 0, 0)
         db.session.add(self.testUser)
         db.session.commit()
 
