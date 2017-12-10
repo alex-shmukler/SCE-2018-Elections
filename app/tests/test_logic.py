@@ -1,27 +1,19 @@
-import os
+from __future__ import absolute_import
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import TimeoutException
-from flask import Flask
 from flask_testing import LiveServerTestCase
-
 from app.models import User
 from app import app, db
-
-
 
 
 class SeleniumTest(LiveServerTestCase):
     SQLALCHEMY_DATABASE_URI = "sqlite://"
     TESTING = True
 
-
     def init_db(self):
         self.testUser = User('test', 'me',1234567800,0,0)
         db.session.add(self.testUser)
         db.session.commit()
-
 
     def create_app(self):
         app.config['TESTING'] = True
@@ -33,13 +25,10 @@ class SeleniumTest(LiveServerTestCase):
             self.init_db()
         return app
 
-
-
     def setUp(self):
          self.browser = webdriver.PhantomJS(executable_path="./phantomjs")
          self.browser.get(self.get_server_url())
          self.msg = 'The user is not registered!'
-
 
     def test_registered_user(self):
         first_name = self.browser.find_element_by_id("first_name")
@@ -73,14 +62,11 @@ class SeleniumTest(LiveServerTestCase):
         assert self.msg in self.browser.page_source
         # self.browser.save_screenshot('unregistered_user.png')
 
-
-
     def tearDown(self):
         self.browser.quit()
         with app.app_context():
             db.drop_all()
             db.session.remove()
-
 
 if __name__ == '__main__':
     unittest.main()
