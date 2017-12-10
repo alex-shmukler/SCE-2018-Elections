@@ -6,7 +6,6 @@ from app.models import User
 from app import app, db
 
 
-
 class SeleniumTest(LiveServerTestCase):
     SQLALCHEMY_DATABASE_URI = "sqlite://"
     TESTING = True
@@ -29,7 +28,7 @@ class SeleniumTest(LiveServerTestCase):
         return app
 
     def setUp(self):
-        self.browser = webdriver.PhantomJS(executable_path="/opt/bitnami/apps/jenkins/jenkins_home/workspace/AmitDorAlex/app/tests/phantomjs")
+        self.browser = webdriver.PhantomJS()
         self.browser.get(self.get_server_url())
         self.msg = 'The user is not registered!'
 
