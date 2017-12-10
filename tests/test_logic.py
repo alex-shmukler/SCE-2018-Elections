@@ -12,7 +12,7 @@ class SeleniumTest(LiveServerTestCase):
     TESTING = True
 
     def init_db(self):
-        self.testUser = User('test', 'me',1234567800,0,0)
+        self.testUser = User('test', 'me',12345678010,0,0)
         db.session.add(self.testUser)
         db.session.commit()
 
@@ -39,7 +39,7 @@ class SeleniumTest(LiveServerTestCase):
         last_name.send_keys("me")
 
         id_num = self.browser.find_element_by_id("id_num")
-        id_num.send_keys(1234567800)
+        id_num.send_keys(12345678010)
 
         submit = self.browser.find_element_by_id("submit")
         submit.click()
