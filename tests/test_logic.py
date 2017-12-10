@@ -2,8 +2,6 @@ from __future__ import absolute_import
 import unittest
 from selenium import webdriver
 from flask_testing import LiveServerTestCase
-import app
-app.path.append('/Users/dor/PycharmProjects/devpos/app')
 from app.models import User
 from app import app, db
 
