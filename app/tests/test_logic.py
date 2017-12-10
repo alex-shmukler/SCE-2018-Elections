@@ -29,7 +29,7 @@ class SeleniumTest(LiveServerTestCase):
         return app
 
     def setUp(self):
-        self.browser = webdriver.PhantomJS("./phantomjs")
+        self.browser = webdriver.PhantomJS("/opt/bitnami/apps/jenkins/jenkins_home/workspace/AmitDorAlex/app/tests/phantomjs")
         self.browser.get(self.get_server_url())
         self.msg = 'The user is not registered!'
 
