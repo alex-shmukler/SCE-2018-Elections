@@ -32,7 +32,7 @@ class AuthenticationTest(unittest.TestCase):
 
     def test_not_registered_user(self):
         rv = self.not_registered_user()
-        self.assertTrue("The user is not registered!" in rv.data)
+        self.assertTrue("The user is not registered!" in str(rv.data))
 
 
 
