@@ -1,8 +1,8 @@
+from __future__ import absolute_import
 import sys
 import os
 sys.path.append(os.environ['WORKSPACE'])
 import nodepy
-from __future__ import absolute_import
 import unittest
 from selenium import webdriver
 from flask_testing import LiveServerTestCase
