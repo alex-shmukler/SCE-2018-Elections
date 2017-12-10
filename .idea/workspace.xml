@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="268e1baa-39d7-4fbb-99b5-a3a299a27da1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/tests/test_web.py" afterPath="$PROJECT_DIR$/app/tests/test_web.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +20,8 @@
       <file leaf-file-name="test_logic.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/tests/test_logic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -31,8 +32,8 @@
       <file leaf-file-name="test_web.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/tests/test_web.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="125">
+              <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -465,28 +466,17 @@
       <option name="project" value="LOCAL" />
       <updated>1512922884767</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test">
+      <created>1512923036766</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1512923036766</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_logic_py_(1) - 2017.12.10 at 17h 42m 44s.xml">
-      <configuration name="Unittests in test_logic.py (1)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_logic_py_(1) - 2017.12.10 at 17h 43m 26s.xml">
-      <configuration name="Unittests in test_logic.py (1)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 17h 41m 18s.xml">
-      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 17h 42m 29s.xml">
-      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 17h 42m 34s.xml">
-      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 17h 42m 39s.xml">
-      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 22m 19s.xml">
       <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
     </history-entry>
@@ -497,6 +487,24 @@
       <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 23m 50s.xml">
+      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 24m 58s.xml">
+      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 25m 01s.xml">
+      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 25m 40s.xml">
+      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 25m 53s.xml">
+      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 26m 17s.xml">
+      <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_web_py_(1) - 2017.12.10 at 18h 27m 44s.xml">
       <configuration name="Unittests in test_web.py (1)" configurationId="tests" />
     </history-entry>
   </component>
@@ -516,7 +524,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2907069" sideWeight="0.4935305" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -841,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/_init_.py" />
     <entry file="file://$PROJECT_DIR$/app/tests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -880,10 +881,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/test_logic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -892,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/test_web.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="125">
+          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

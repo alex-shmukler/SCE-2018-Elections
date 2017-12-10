@@ -1,14 +1,18 @@
 from __future__ import absolute_import
 import unittest
-from app import app
+from app import app, db
 
 
 class AuthenticationTest(unittest.TestCase):
+    SQLALCHEMY_DATABASE_URI = "sqlite://"
+    TESTING = True
 
     def setUp(self):
         self.app_context = app.app_context()
         self.app_context.push()
+        db.create_all()
         self.check = app.test_client(self)
+
 
     def login_without_id(self):
         return self.check.post('login', data=dict(first_name='aa', last_name='aa'))
