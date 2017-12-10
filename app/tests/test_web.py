@@ -2,7 +2,6 @@ from __future__ import absolute_import
 import unittest
 from app import app, db
 
-
 class AuthenticationTest(unittest.TestCase):
     SQLALCHEMY_DATABASE_URI = "sqlite://"
     TESTING = True
@@ -31,9 +30,11 @@ class AuthenticationTest(unittest.TestCase):
     def not_registered_user(self):
         return self.check.post('login', data=dict(first_name='example', last_name='example', id_num='123456789'))
 
-    # def test_not_registered_user(self):
-    #     rv = self.not_registered_user()
-    #     assert 'The user is not registered!' in rv.data
+    def test_not_registered_user(self):
+        rv = self.not_registered_user()
+        self.assertTrue("The user is not registered!" in rv.data)
+
+
 
     def tearDown(self):
         del self.check
