@@ -31,10 +31,9 @@ class AuthenticationTest(unittest.TestCase):
     def not_registered_user(self):
         return self.check.post('login', data=dict(first_name='example', last_name='example', id_num='123456789'))
 
-    def test_not_registered_user(self):
-        rv = self.not_registered_user()
-        if rv.data:
-            assert 'The user is not registered!' in rv.data
+    # def test_not_registered_user(self):
+    #     rv = self.not_registered_user()
+    #     assert 'The user is not registered!' in rv.data
 
     def tearDown(self):
         del self.check
