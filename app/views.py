@@ -31,7 +31,7 @@ def index():
         party_rec = Party.query.filter_by(name=request.form['party_name']).first()
         party_rec.sum += 1
         db.session.commit()
-        flash(u'הצבעתך נקלטה בהצלחה', 'success')
+        flash('Your vote has been successfully recorded!', 'success')
         return render_template('login.html')
     g.user = current_user
     parties = Party.query.all()
@@ -65,7 +65,7 @@ def login():
         if user.isVoted == 0:
             login_user(user)
             return redirect(url_for('index'))
-        flash(u'משתמש זה הצביע כבר', 'danger')
+        flash('You already voted!', 'danger')
         return render_template('login.html')
     return render_template('login.html')
 
