@@ -12,8 +12,9 @@ class SeleniumTest(LiveServerTestCase):
     TESTING = True
 
     def init_db(self):
-        self.testUser = User('test', 'me',12345678010,0,0)
-        db.session.add(self.testUser)
+        db.session.commit()
+        testUser = User('test', 'me',12345678010,0,0)
+        db.session.add(testUser)
         db.session.commit()
 
     def create_app(self):
