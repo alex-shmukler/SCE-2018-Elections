@@ -31,7 +31,7 @@ def index():
         party_rec = Party.query.filter_by(name=request.form['party_name']).first()
         party_rec.sum += 1
         db.session.commit()
-        flash('Your vote has been successfully recorded!', 'success')
+        flash('Your vote has been successfully recorded', 'success')
         return render_template('login.html')
     g.user = current_user
     parties = Party.query.all()
@@ -44,7 +44,7 @@ def login():
     errFlag = False;
     if request.method == 'POST':
         if request.form['first_name'] == "" or request.form['last_name'] == "" or request.form['id_num'] == "":
-            flash('Please fill in all the required fields!', 'danger')
+            flash(u'אנא מלא את כל השדות', 'danger')
             errFlag = True;
 
         if errFlag:
@@ -58,11 +58,14 @@ def login():
         if not user:
             flash('The user is not registered!', 'danger')
             return render_template('login.html')
-
+        else:
+            if user.role == 1:
+                login_user(user)
+                return redirect("/admin")
         if user.isVoted == 0:
             login_user(user)
             return redirect(url_for('index'))
-        flash('You already voted!', 'danger')
+        flash(u'משתמש זה הצביע כבר', 'danger')
         return render_template('login.html')
     return render_template('login.html')
 

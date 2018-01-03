@@ -3,10 +3,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js'></script>
+
+
     <div class="container" align="center">
         <h1 dir="rtl">ברוך הבא, {{ user.last_name }} {{ user.first_name }}</h1>
         <h3 dir="rtl">לצורך הצבעה, בחר את המפלגה הרצויה ולחץ 'סיום'</h3>
-        <form method="post">
+        <form id="pickform" method="post">
             {% for party in parties %}
             <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3" style="padding: 5px">
                 <div class="form-check">
@@ -25,11 +29,21 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="submitbote">
-                        <button style="width:200px;" type="submit" class="btn btn-primary btn-lg">סיום</button>
+                        <input type="checkbox" id="agree">
+                        ?האם אתה מאשר/ת
+                        <br><br>
+                        <button style="width:300px;" type="submit" id="done1" class="btn btn-primary btn-lg disabled">סיום</button>
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
+
+
+<script>
+$('#agree').click(function(){
+    $('#done1').toggleClass("disabled");
+})
+</script>
+
 {% endblock %}
