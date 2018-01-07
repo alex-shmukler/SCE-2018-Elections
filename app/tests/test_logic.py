@@ -37,46 +37,46 @@ class SeleniumTest(LiveServerTestCase):
         db.session.commit()
 
     def setUp(self):
-         self.browser = webdriver.PhantomJS(executable_path="app/tests/phantomjs")
+         self.browser = webdriver.PhantomJS(executable_path="phantomjs")
          self.browser.get(self.get_server_url())
          self.msg = 'The user is not registered!'
          self.msg2 = 'Your vote has been successfully recorded'
 
 
-    # def test_registered_user(self):
-    #     first_name = self.browser.find_element_by_id("first_name")
-    #     first_name.send_keys("test")
-    #
-    #     last_name = self.browser.find_element_by_id("last_name")
-    #     last_name.send_keys("me")
-    #
-    #     id_num = self.browser.find_element_by_id("id_num")
-    #     id_num.send_keys(1234567800)
-    #
-    #     submit = self.browser.find_element_by_id("submit")
-    #     submit.click()
-    #
-    #     assert self.msg not in self.browser.page_source
-    #     self.browser.save_screenshot('registered_user.png')
-    #
-    #
-    #
-    # def test_unregistered_user(self):
-    #     first_name = self.browser.find_element_by_id("first_name")
-    #     first_name.send_keys("test1")
-    #
-    #     last_name = self.browser.find_element_by_id("last_name")
-    #     last_name.send_keys("me1")
-    #
-    #     id_num = self.browser.find_element_by_id("id_num")
-    #     id_num.send_keys(123456787)
-    #
-    #     submit = self.browser.find_element_by_id("submit")
-    #     submit.click()
-    #
-    #     assert self.msg in self.browser.page_source
-    #     self.browser.save_screenshot('unregistered_user.png')
-    #
+    def test_registered_user(self):
+        first_name = self.browser.find_element_by_id("first_name")
+        first_name.send_keys("test")
+
+        last_name = self.browser.find_element_by_id("last_name")
+        last_name.send_keys("me")
+
+        id_num = self.browser.find_element_by_id("id_num")
+        id_num.send_keys(1234567800)
+
+        submit = self.browser.find_element_by_id("submit")
+        submit.click()
+
+        assert self.msg not in self.browser.page_source
+        self.browser.save_screenshot('registered_user.png')
+
+
+
+    def test_unregistered_user(self):
+        first_name = self.browser.find_element_by_id("first_name")
+        first_name.send_keys("test1")
+
+        last_name = self.browser.find_element_by_id("last_name")
+        last_name.send_keys("me1")
+
+        id_num = self.browser.find_element_by_id("id_num")
+        id_num.send_keys(123456787)
+
+        submit = self.browser.find_element_by_id("submit")
+        submit.click()
+
+        assert self.msg in self.browser.page_source
+        self.browser.save_screenshot('unregistered_user.png')
+
 
 
 
