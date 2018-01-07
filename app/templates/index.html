@@ -29,21 +29,33 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="submitbote">
-                        <input type="checkbox" id="agree">
-                        ?האם אתה מאשר/ת
-                        <br><br>
-                        <button style="width:300px;" type="submit" id="done1" class="btn btn-primary btn-lg disabled">סיום</button>
+                        <button style="width:300px;" type="button" onclick="confirm1();" id="done1" class="btn btn-primary btn-lg disabled">סיום</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-
-
 <script>
-$('#agree').click(function(){
-    $('#done1').toggleClass("disabled");
-})
+
+
+
+
+
+$('.form-check-input').click(function(){
+    if ($('.form-check-input').is(':checked')){
+        $('#done1').removeClass('disabled');
+    };
+});
+
+
+
+function confirm1(){
+    if (confirm("?האם את/ה בטוח/ה")){
+        $('#pickform').submit();
+    }else {
+
+    }
+}
 </script>
 
 {% endblock %}
