@@ -1,8 +1,4 @@
 
-
-
-
-
 #!/bin/bash
 
 #update system
