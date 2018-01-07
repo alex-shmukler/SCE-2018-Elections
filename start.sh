@@ -17,7 +17,7 @@ sudo easy_install pip
 
 #clone proejct repo
 git clone https://github.com/alex-shmukler/SCE-2018-Elections.git
-cd SCE-Tirgul-2
+cd SCE-2018-Elections
 
 #install our app requirements
 sudo pip install -r requirements.txt
