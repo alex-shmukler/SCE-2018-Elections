@@ -32,7 +32,7 @@ class SeleniumTest(LiveServerTestCase):
         db.session.commit()
 
     def setUp(self):
-         self.browser = webdriver.PhantomJS(executable_path="app/tests/phantomjs")
+         self.browser = webdriver.PhantomJS(executable_path="phantomjs")
          self.browser.get(self.get_server_url())
          self.msg = 'The user is not registered!'
          self.msg2 = 'Your vote has been successfully recorded'
