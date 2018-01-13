@@ -3,8 +3,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css'>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js'></script>
 
 
     <div class="container" align="center">
@@ -29,29 +27,42 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="submitbote">
-                        <button style="width:300px;" type="button" onclick="confirm1();" id="done1" class="btn btn-primary btn-lg disabled">סיום</button>
+                        <button style="width:300px;" type="button" id="approve" class="btn btn-primary btn-lg disabled approved" data-toggle="modal" data-target="#user-modal">סיום</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 
+ <!--Modal delete user -->
+    <div class="modal fade" name="result1" id="user-modal" tabindex="-1" role="dialog" aria-labelledby="delete-user-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <input type="hidden" name="id" value="">
+                    <div class="modal-header model-header-danger">
+                        <h2 class="modal-title" id="delete-user-modal">אישור בחירה</h2>
+                    </div>
+                    <div class="modal-footer" style="text-align: center;">
+                        <h3>?האם את/ה בטוח/ה</h3>
+                        <br>
+                        <button type="submit" class="btn btn-primary" id="ok" onclick="$('#pickform').submit();">כן</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">לא</button>
+                    </div>
+            </div>
+        </div>
+    </div>
 
 <script>
+$(".approved").on('click', function(e){
+            e.preventDefault();
+        });
 
 $('.form-check-input').click(function(){
     if ($('.form-check-input').is(':checked')){
-        $('#done1').removeClass('disabled');
+        $('#approve').removeClass('disabled');
     };
 });
 
-function confirm1(){
-    if (confirm("?האם את/ה בטוח/ה")){
-        $('#pickform').submit();
-    }else {
 
-    }
-}
 </script>
-
 {% endblock %}

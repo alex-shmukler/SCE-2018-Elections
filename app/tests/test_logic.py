@@ -1,15 +1,14 @@
-import os
 import unittest
+
 import time
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from flask import Flask
 from flask_testing import LiveServerTestCase
 from app.models import User,Party
 from app import app, db
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait as wait
 
 
 class SeleniumTest(LiveServerTestCase):
@@ -37,50 +36,52 @@ class SeleniumTest(LiveServerTestCase):
         db.session.commit()
 
     def setUp(self):
-         self.browser = webdriver.PhantomJS(executable_path="phantomjs")
+         self.browser = webdriver.PhantomJS(executable_path="app/tests/phantomjs")
          self.browser.get(self.get_server_url())
          self.msg = 'The user is not registered!'
          self.msg2 = 'Your vote has been successfully recorded'
 
 
-    def test_registered_user(self):
-        first_name = self.browser.find_element_by_id("first_name")
-        first_name.send_keys("test")
-
-        last_name = self.browser.find_element_by_id("last_name")
-        last_name.send_keys("me")
-
-        id_num = self.browser.find_element_by_id("id_num")
-        id_num.send_keys(1234567800)
-
-        submit = self.browser.find_element_by_id("submit")
-        submit.click()
-
-        assert self.msg not in self.browser.page_source
-        self.browser.save_screenshot('registered_user.png')
-
-
-
-    def test_unregistered_user(self):
-        first_name = self.browser.find_element_by_id("first_name")
-        first_name.send_keys("test1")
-
-        last_name = self.browser.find_element_by_id("last_name")
-        last_name.send_keys("me1")
-
-        id_num = self.browser.find_element_by_id("id_num")
-        id_num.send_keys(123456787)
-
-        submit = self.browser.find_element_by_id("submit")
-        submit.click()
-
-        assert self.msg in self.browser.page_source
-        self.browser.save_screenshot('unregistered_user.png')
+    # def test_registered_user(self):
+    #     first_name = self.browser.find_element_by_id("first_name")
+    #     first_name.send_keys("test")
+    #
+    #     last_name = self.browser.find_element_by_id("last_name")
+    #     last_name.send_keys("me")
+    #
+    #     id_num = self.browser.find_element_by_id("id_num")
+    #     id_num.send_keys(1234567800)
+    #
+    #     submit = self.browser.find_element_by_id("submit")
+    #     submit.click()
+    #
+    #     assert self.msg not in self.browser.page_source
+    #     self.browser.save_screenshot('registered_user.png')
+    #
+    #
+    #
+    # def test_unregistered_user(self):
+    #     first_name = self.browser.find_element_by_id("first_name")
+    #     first_name.send_keys("test1")
+    #
+    #     last_name = self.browser.find_element_by_id("last_name")
+    #     last_name.send_keys("me1")
+    #
+    #     id_num = self.browser.find_element_by_id("id_num")
+    #     id_num.send_keys(123456787)
+    #
+    #     submit = self.browser.find_element_by_id("submit")
+    #     submit.click()
+    #
+    #     assert self.msg in self.browser.page_source
+    #     self.browser.save_screenshot('unregistered_user.png')
 
 
 
 
     def test_registered_user_and_finish(self):
+        browser = self.browser
+        print(browser.title)
         first_name = self.browser.find_element_by_id("first_name")
         first_name.send_keys("test")
 
@@ -96,10 +97,11 @@ class SeleniumTest(LiveServerTestCase):
         if self.msg not in self.browser.page_source:
             selectedParty = self.browser.find_element_by_id("partyTest")
             self.browser.execute_script("arguments[0].click();",selectedParty)
-            submit1 = self.browser.find_element_by_id("pickform")
-            submit1.submit()
+            browser.find_element_by_id('approve').click()
+            browser.switch_to.active_element
+            time.sleep(3)
+            browser.find_element_by_id('ok').click()
             assert self.msg2 in self.browser.page_source
-            self.browser.save_screenshot('full process.png')
 
 
     def tearDown(self):
