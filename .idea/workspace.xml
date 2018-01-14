@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="268e1baa-39d7-4fbb-99b5-a3a299a27da1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/test.jmx" afterPath="$PROJECT_DIR$/test.jmx" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -624,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515956860742</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="add third selemium test">
+      <created>1515957604027</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1515957604027</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TestHistory">
