@@ -1,12 +1,15 @@
-from cloudshell.api.cloudshell_api import CloudShellAPISession
 import sys
+
+from cloudshell.api.cloudshell_api import CloudShellAPISession
 
 server_ip = sys.argv[1]
 reservation_id = sys.argv[2]
 DEPLOYED_APP_MODEL = 'Generic App Model'
 
-session = CloudShellAPISession(server_ip,sys.argv[3],sys.argv[4],sys.argv[5])
-
+session = CloudShellAPISession(server_ip,
+                               sys.argv[3],
+                               sys.argv[4],
+                               sys.argv[5])
 
 resources = session.GetReservationDetails(reservation_id).ReservationDescription.Resources
 
@@ -19,10 +22,8 @@ if len(my_resource) > 1:
 if len(my_resource) == 0:
     raise Exception('There are no deployed application in the sandbox')
 
-resource_attributes = session.GetResourceDetails(my_resource[0].Name).ResourceAttributes
-public_ip = None
-for att in resource_attributes:
-    if att.Name == 'Public IP':
-        public_ip = att.Value  ## for getting the public ip
-        print (public_ip)
-    break
+resource_att = session.GetResourceDetails(my_resource[0].Name).ResourceAttributes
+for item in resource_att:
+    if item.Name == 'Public IP':
+        sys.stdout.write(item.Value)
+        break
